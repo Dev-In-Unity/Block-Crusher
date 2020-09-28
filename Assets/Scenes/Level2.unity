@@ -923,11 +923,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Block '
       objectReference: {fileID: 0}
-    - target: {fileID: 8518588861703743274, guid: 722786a56ce97ee4ca44ff89e4e91bf1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722786a56ce97ee4ca44ff89e4e91bf1, type: 3}
 --- !u!4 &1071178285 stripped
@@ -1301,6 +1296,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8518588861703743274, guid: 722786a56ce97ee4ca44ff89e4e91bf1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722786a56ce97ee4ca44ff89e4e91bf1, type: 3}
 --- !u!4 &1504522495 stripped
@@ -1648,11 +1648,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5650985849170541968, guid: ea84d3a5f1e72f648a00ac8e94e46d89,
-        type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5650985849170541969, guid: ea84d3a5f1e72f648a00ac8e94e46d89,
         type: 3}
       propertyPath: m_Name
