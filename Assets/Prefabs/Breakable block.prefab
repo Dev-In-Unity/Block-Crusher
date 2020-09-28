@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8518588861703743253}
   - component: {fileID: 8518588861703743254}
   m_Layer: 0
-  m_Name: 'Block '
-  m_TagString: Untagged
+  m_Name: Breakable block
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,3 +122,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakSound: {fileID: 8300000, guid: f7f12e6727c30bc4aaf3f0658508ac6d, type: 3}
   blockSparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
+  maxHits: 3
+  timesHit: 0
