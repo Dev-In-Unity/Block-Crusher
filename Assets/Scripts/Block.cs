@@ -1,25 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-    //config paras
+    // config params
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blockSparklesVFX;
     [SerializeField] int maxHits;
+    [SerializeField] Sprite[] hitSprites;
 
-    //cached reference
+    // cached reference
     Level level;
-
-    //state
-    [SerializeField] int timesHit; //only serializefield for debugging
-
+    // state variables
+    [SerializeField] int timesHit;  // TODO only serialized for debug purposes
     private void Start()
     {
         CountBreakableBlocks();
     }
-
     private void CountBreakableBlocks()
     {
         level = FindObjectOfType<Level>();
@@ -28,7 +27,6 @@ public class Block : MonoBehaviour
             level.CountBlocks();
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (tag == "Breakable")
@@ -36,7 +34,6 @@ public class Block : MonoBehaviour
             HandleHit();
         }
     }
-
     private void HandleHit()
     {
         timesHit++;
@@ -44,6 +41,16 @@ public class Block : MonoBehaviour
         {
             DestroyBlock();
         }
+        else
+        {
+            ShowNextHitSprite();
+        }
+    }
+
+    private void ShowNextHitSprite()
+    {
+        int spriteIndex = timesHit - 1;
+        GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
     }
 
     private void DestroyBlock()
@@ -53,18 +60,14 @@ public class Block : MonoBehaviour
         level.BlockDestroyed();
         TriggerSparklesVFX();
     }
-
     private void PlayBlockDestroySFX()
     {
         FindObjectOfType<GameSession>().AddToScore();
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
     }
-
     private void TriggerSparklesVFX()
     {
         GameObject sparkles = Instantiate(blockSparklesVFX, transform.position, transform.rotation);
-        Destroy(sparkles, 2f);
+        Destroy(sparkles, 1f);
     }
 }
-
-
